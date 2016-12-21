@@ -9,20 +9,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.lwjgl.opengl.GL11;
+
+import bspkrs.client.util.HUDUtils;
+import bspkrs.statuseffecthud.fml.Reference;
+import bspkrs.util.CommonUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.config.Configuration;
-
-import org.lwjgl.opengl.GL11;
-
-import bspkrs.client.util.HUDUtils;
-import bspkrs.statuseffecthud.fml.Reference;
-import bspkrs.util.CommonUtils;
 
 public class StatusEffectHUD
 {
@@ -147,7 +146,7 @@ public class StatusEffectHUD
                 !mc.gameSettings.showDebugInfo)
         {
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-            scaledResolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+            scaledResolution = new ScaledResolution(mc);
             displayStatusEffects(mc);
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -206,7 +205,7 @@ public class StatusEffectHUD
                 if (!potionMaxDurationMap.containsKey(potionEffect) || potionMaxDurationMap.get(potionEffect).intValue() < potionEffect.getDuration())
                     potionMaxDurationMap.put(potionEffect, new Integer(potionEffect.getDuration()));
 
-                Potion potion = Potion.potionTypes[potionEffect.getPotionID()];
+                Potion potion = potionEffect.getPotion();
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 mc.getTextureManager().bindTexture(new ResourceLocation("textures/gui/container/inventory.png"));
                 int xBase = getX(enableBackground ? 120 : 18 + 4 + mc.fontRendererObj.getStringWidth("0:00"));
@@ -214,7 +213,7 @@ public class StatusEffectHUD
 
                 if (enableEffectName)
                 {
-                    potionName = StatCollector.translateToLocal(potion.getName());
+                    potionName = I18n.translateToLocal(potion.getName());
 
                     if (potionEffect.getAmplifier() == 1)
                     {
@@ -259,7 +258,7 @@ public class StatusEffectHUD
                     xBase = getX(enableBackground ? 120 : 18 + 4 + mc.fontRendererObj.getStringWidth(potionName));
                 }
 
-                String effectDuration = Potion.getDurationString(potionEffect);
+                String effectDuration = Potion.getPotionDurationString(potionEffect, 1);
 
                 if (enableBackground)
                     HUDUtils.drawTexturedModalRect(xBase, yBase, 0, 166, 140, 32, zLevel);
