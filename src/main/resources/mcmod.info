@@ -1,7 +1,7 @@
 {
   "modListVersion": 2,
   "modList": [{
-    "modid": "StatusEffectHUD",
+    "modid": "statuseffecthud",
     "name": "StatusEffectHUD",
     "description": "Shows active player effects (potions, etc) without opening your inventory!",
     "version": "${mod_version}",
@@ -13,8 +13,8 @@
     "logoFile": "",
     "screenshots": [  ],
     "parent": "",
-    "requiredMods": [ "bspkrsCore@[${bscore_version},)" ],
-    "dependencies": [ "bspkrsCore@[${bscore_version},)" ],
+    "requiredMods": [ "bspkrscore@[${bscore_version},)" ],
+    "dependencies": [ "bspkrscore@[${bscore_version},)" ],
     "dependants": [  ],
     "useDependencyInformation": "true"
   }]
