@@ -187,7 +187,7 @@ public class StatusEffectHUD
 
     private static void displayStatusEffects(Minecraft mc)
     {
-        Collection<?> activeEffects = mc.thePlayer.getActivePotionEffects();
+        Collection<?> activeEffects = mc.player.getActivePotionEffects();
 
         if (!activeEffects.isEmpty())
         {
