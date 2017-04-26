@@ -208,7 +208,7 @@ public class StatusEffectHUD
                 Potion potion = potionEffect.getPotion();
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 mc.getTextureManager().bindTexture(new ResourceLocation("textures/gui/container/inventory.png"));
-                int xBase = getX(enableBackground ? 120 : 18 + 4 + mc.fontRendererObj.getStringWidth("0:00"));
+                int xBase = getX(enableBackground ? 120 : 18 + 4 + mc.fontRenderer.getStringWidth("0:00"));
                 String potionName = "";
 
                 if (enableEffectName)
@@ -255,7 +255,7 @@ public class StatusEffectHUD
                        	potionName = potionName + " " + (potionEffect.getAmplifier() + 1);        
                   	}
                   
-                    xBase = getX(enableBackground ? 120 : 18 + 4 + mc.fontRendererObj.getStringWidth(potionName));
+                    xBase = getX(enableBackground ? 120 : 18 + 4 + mc.fontRenderer.getStringWidth(potionName));
                 }
 
                 String effectDuration = Potion.getPotionDurationString(potionEffect, 1);
@@ -273,12 +273,12 @@ public class StatusEffectHUD
                         if (!enableIconBlink || (enableIconBlink && shouldRender(potionEffect, potionEffect.getDuration(), durationBlinkSeconds)))
                             HUDUtils.drawTexturedModalRect(xBase + (enableBackground ? -24 : -18), yBase + (enableBackground ? 7 : 0), 0 + potionStatusIcon % 8 * 18, 166 + 32 + potionStatusIcon / 8 * 18, 18, 18, zLevel);
                     }
-                    int stringWidth = mc.fontRendererObj.getStringWidth(potionName);
-                    mc.fontRendererObj.drawStringWithShadow("\247" + effectNameColor + potionName + "\247r", xBase + (enableBackground ? -10 : -4) - 18 - stringWidth, yBase + (enableBackground ? 6 : 0), 0xffffff);
-                    stringWidth = mc.fontRendererObj.getStringWidth(effectDuration);
+                    int stringWidth = mc.fontRenderer.getStringWidth(potionName);
+                    mc.fontRenderer.drawStringWithShadow("\247" + effectNameColor + potionName + "\247r", xBase + (enableBackground ? -10 : -4) - 18 - stringWidth, yBase + (enableBackground ? 6 : 0), 0xffffff);
+                    stringWidth = mc.fontRenderer.getStringWidth(effectDuration);
 
                     if (shouldRender(potionEffect, potionEffect.getDuration(), durationBlinkSeconds))
-                        mc.fontRendererObj.drawStringWithShadow("\247" + durationColor + effectDuration + "\247r", xBase + (enableBackground ? -10 : -4) - 18 - stringWidth, yBase + (enableBackground ? 6 : 0) + (enableEffectName ? 10 : 5), 0xffffff);
+                        mc.fontRenderer.drawStringWithShadow("\247" + durationColor + effectDuration + "\247r", xBase + (enableBackground ? -10 : -4) - 18 - stringWidth, yBase + (enableBackground ? 6 : 0) + (enableEffectName ? 10 : 5), 0xffffff);
                 }
                 else
                 {
@@ -287,10 +287,10 @@ public class StatusEffectHUD
                         int potionStatusIcon = potion.getStatusIconIndex();
                         HUDUtils.drawTexturedModalRect(xBase + (enableBackground ? 6 : 0), yBase + (enableBackground ? 7 : 0), 0 + potionStatusIcon % 8 * 18, 166 + 32 + potionStatusIcon / 8 * 18, 18, 18, zLevel);
                     }
-                    mc.fontRendererObj.drawStringWithShadow("\247" + effectNameColor + potionName + "\247r", xBase + (enableBackground ? 10 : 4) + 18, yBase + (enableBackground ? 6 : 0), 0xffffff);
+                    mc.fontRenderer.drawStringWithShadow("\247" + effectNameColor + potionName + "\247r", xBase + (enableBackground ? 10 : 4) + 18, yBase + (enableBackground ? 6 : 0), 0xffffff);
 
                     if (shouldRender(potionEffect, potionEffect.getDuration(), durationBlinkSeconds))
-                        mc.fontRendererObj.drawStringWithShadow("\247" + durationColor + effectDuration + "\247r", xBase + (enableBackground ? 10 : 4) + 18, yBase + (enableBackground ? 6 : 0) + (enableEffectName ? 10 : 5), 0xffffff);
+                        mc.fontRenderer.drawStringWithShadow("\247" + durationColor + effectDuration + "\247r", xBase + (enableBackground ? 10 : 4) + 18, yBase + (enableBackground ? 6 : 0) + (enableEffectName ? 10 : 5), 0xffffff);
                 }
             }
 
