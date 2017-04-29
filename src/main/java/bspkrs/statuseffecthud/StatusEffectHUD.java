@@ -9,6 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.lwjgl.opengl.GL11;
+
+import bspkrs.client.util.HUDUtils;
+import bspkrs.statuseffecthud.fml.Reference;
+import bspkrs.util.CommonUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.ScaledResolution;
@@ -17,12 +22,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
-
-import org.lwjgl.opengl.GL11;
-
-import bspkrs.client.util.HUDUtils;
-import bspkrs.statuseffecthud.fml.Reference;
-import bspkrs.util.CommonUtils;
 
 public class StatusEffectHUD
 {
@@ -147,7 +146,7 @@ public class StatusEffectHUD
                 !mc.gameSettings.showDebugInfo)
         {
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-            scaledResolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+            scaledResolution = new ScaledResolution(mc);
             displayStatusEffects(mc);
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
         }

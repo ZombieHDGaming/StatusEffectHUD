@@ -4,7 +4,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Reference
 {
-    public static final String  MODID        = "StatusEffectHUD";
+    public static final String  MODID        = "statuseffecthud";
     public static final String  NAME         = "StatusEffectHUD";
     public static final String  PROXY_COMMON = "bspkrs.statuseffecthud.fml.CommonProxy";
     public static final String  PROXY_CLIENT = "bspkrs.statuseffecthud.fml.ClientProxy";

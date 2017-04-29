@@ -1,7 +1,6 @@
 package bspkrs.statuseffecthud.fml;
 
 import bspkrs.util.Const;
-import bspkrs.util.ModVersionChecker;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -15,10 +14,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
         useMetadata = true, guiFactory = Reference.GUI_FACTORY)
 public class StatusEffectHUDMod
 {
-    protected ModVersionChecker      versionChecker;
-    protected final String           versionURL = Const.VERSION_URL + "/Minecraft/" + Const.MCVERSION + "/statusEffectHUD.version";
-    protected final String           mcfTopic   = "http://www.minecraftforum.net/topic/1114612-";
-
     @Metadata(value = Reference.MODID)
     public static ModMetadata        metadata;
 

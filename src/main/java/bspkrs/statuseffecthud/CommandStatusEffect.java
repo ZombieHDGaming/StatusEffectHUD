@@ -1,9 +1,10 @@
 package bspkrs.statuseffecthud;
 
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.ICommandSender;
 import bspkrs.fml.util.DelayedGuiDisplayTicker;
 import bspkrs.statuseffecthud.fml.gui.GuiSEHConfig;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
 
 public class CommandStatusEffect extends CommandBase
 {
@@ -45,7 +46,7 @@ public class CommandStatusEffect extends CommandBase
     }
 
     @Override
-    public int compareTo(Object object)
+    public int compareTo(ICommand object)
     {
         if (object instanceof CommandBase)
             return this.getCommandName().compareTo(((CommandBase) object).getCommandName());
