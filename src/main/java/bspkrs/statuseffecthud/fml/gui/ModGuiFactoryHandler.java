@@ -22,7 +22,7 @@ public class ModGuiFactoryHandler implements IModGuiFactory
 
   @Override
   public GuiScreen createConfigGui(GuiScreen parentScreen) {
-    return new GuiBSConfig(parentScreen);
+    return new GuiSEHConfig(parentScreen);
   }
 
   @Override
